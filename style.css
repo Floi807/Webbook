@@ -1,171 +1,259 @@
-body{
+/* ====== ОБЩИЕ СТИЛИ ====== */
+body {
     background-color: rgb(181, 181, 194);
     color: rgb(255, 255, 255);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-h1{
+/* Заголовки */
+h1 {
     text-align: center;
-    font-size: 45px;
+    font-size: 2.5rem;
+    color: black;
 }
 
-.title{
+.title {
     border: solid 10px;
     color: black;
 }
 
-.titl{
-    padding: 20px 20px 20px 20px;
-    height: 60px;
-    width: 150px;
-    margin-left: 800px;
-    margin-right: 50px;
-    margin-top: 30px;
-    margin-bottom: 20px;
+.titl {
+    padding: 20px;
+    width: 200px;
+    margin: 30px auto;
     border-radius: 15px;
     border: solid;
     background-color: rgb(189, 189, 189);
     color: rgb(37, 37, 44);
-    text-align: center; 
+    text-align: center;
+    font-weight: bold;
 }
 
-.menu{
+/* Меню */
+.menu {
     display: flex;
-    gap: 10px;
     justify-content: center;
-    color: darkgrey;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 15px;
+    background-color: rgb(60, 60, 70);
 }
 
-.search-container{
+.menu button {
+    border-radius: 15px;
+    width: 200px;
+    height: 40px;
+    border: none;
+    background-color: rgb(120, 120, 130);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu button:hover {
+    background-color: rgb(150, 150, 160);
+}
+
+/* Поиск */
+.search-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
 }
 
-.search-btn{
-    padding: 5px 15px;
+.search-btn {
+    padding: 8px 15px;
     font-size: 14px;
     cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(90, 90, 110);
+    color: white;
 }
 
-.search-input{
-    padding: 5px 10px;
+.search-input {
+    padding: 8px 10px;
     font-size: 14px;
-    width: 200px;
-}
-
-.btn1{
-    border-radius: 15px;
-    width: 200px;
-    height: 35px;
-}
-
-.btn2{
-    border-radius: 15px;
-    width: 200px;
-    height: 35px;
-}
-
-.btn3{
-    border-radius: 15px;
-    width: 200px;
-    height: 35px;
-}
-
-img{
-    margin: 150px 1px 0 15px;
     width: 250px;
-    border-radius: 10px;
-    border: solid 5px rgb(68, 8, 8);
+    border-radius: 8px;
+    border: 2px solid #333;
 }
-.books-container{
-    display: flex;
-    gap: 10px;
+
+/* Книги */
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(5, 260px);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
-.book{
+
+.book {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    
 }
 
-.ii{
-    width: 280px;
+.book img {
+    width: 260px;              /* одинаковая ширина */
+    height: 360px;             /* одинаковая высота */
+    object-fit: cover;         /* обрезает лишнее, сохраняя пропорции */
     border-radius: 10px;
-
-}
-.btn{
-    margin-top: 10px;
-    padding: 8px 16px;
-    background: blue;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-.btn:hover{
-    background: blue;
+    border: solid 5px rgb(68, 8, 8);
+    transition: 0.3s;
+    background-color: #fff;    /* белый фон, если картинка меньше */
 }
 
-.im{
-    width: 276px;
-    border-radius: 10px;
+
+.book img:hover {
+    transform: scale(1.03);
 }
 
-.im1{
-    width: 274px;
-    border-radius: 10px;
-}
-
-.im2{
-    width: 288px;
-    border-radius: 10px;
-}
-
-.im3{
-    width: 257px;
-    border-radius: 10px;
-}
-
-.im4{
-    width: 263px;
-    border-radius: 10px;
-}
-
-.search{
-    width: 170px;
-    height: 25px;
-    margin: 0 0 60px 810px;
-    border-radius: 5px;
-    border: solid 2px;
-}
-
+/* Контейнеры страниц */
 .page {
-      display: none;
+    display: none;
 }
 
 .page.active {
-      display: block;
+    display: block;
 }
 
-.page h1{
-    color: black;
-}
-
-.description{
-    width: 80vw;
-    height: 150px;
+/* Описание книги */
+.description {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
     box-sizing: border-box;
     padding: 15px;
     border: 3px solid #444;
     border-radius: 10px;
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
-    overflow: scroll;
-    max-width: 300px;
-    max-height: 150px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
     color: black;
     background-color: lightgrey;
 }
 
+/* ====== АДАПТИВНОСТЬ ====== */
 
+/* --- Планшеты (до 1024px) --- */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2rem;
+    }
 
+    .menu button {
+        width: 180px;
+        height: 38px;
+    }
+
+    .books-container {
+        gap: 15px;
+    }
+
+    .book img {
+        width: 220px;
+    }
+
+    .titl {
+        width: 180px;
+        font-size: 1.2rem;
+    }
+}
+
+/* --- Малые планшеты и большие телефоны (до 768px) --- */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu button {
+        width: 90%;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .search-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .search-input {
+        width: 80%;
+    }
+
+    .books-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book img {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .titl {
+        width: auto;
+        margin: 20px auto;
+    }
+}
+
+/* --- Мобильные устройства (до 480px) --- */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        padding: 0 10px;
+    }
+
+    .menu {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .menu button {
+        width: 100%;
+        height: 40px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+
+    .books-container {
+    display: grid; /* вместо flex */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    }
+
+    .book img {
+    width: 260px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: solid 5px rgb(68, 8, 8);
+    transition: 0.3s;
+    background-color: #fff;
+    }
+
+    .description {
+        width: 95%;
+        font-size: 0.9rem;
+    }
+}
