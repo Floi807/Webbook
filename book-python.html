@@ -1,145 +1,132 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Легкий способ выучить Python</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: linear-gradient(135deg, #4a8b90, #e3dbdb);
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<title>Легкий способ выучить Python</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: linear-gradient(135deg, #4a8b90, #e3dbdb);
+    text-align: center;
+  }
 
-    h1 {
-      color: #333;
-    }
+  h1 { color: #333; }
 
-    img {
-      max-width: 300px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      margin: 20px 0;
-    }
+  img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    margin: 20px 0;
+  }
 
-    p {
-      max-width: 700px;
-      margin: 20px auto;
-      font-size: 16px;
-      color: #ffffff;
-    }
+  p {
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 16px;
+    color: #ffffff;
+  }
 
-    .btn {
-      display: inline-block;
-      width: 15em;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #000000;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: background-color 0.3s ease;
-      cursor: pointer;
-    }
+  .btn {
+    display: inline-block;
+    width: 15em;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
 
-    .btn:hover {
-      background-color: #0056b3;
-    }
+  .btn:hover { background-color: #0056b3; }
 
-    .description-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-top: 20px;
-    }
+  .description-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
 
-    .desc {
-      width: 13em;
-      height: 35px;
-      border-radius: 7px;
-      cursor: pointer;
-    }
+  .desc { width: 13em; height: 35px; border-radius: 7px; cursor: pointer; }
 
-    .description {
-      width: 500px;
-      text-align: left;
-      padding: 15px;
-      box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
-      margin-top: 15px;
-      background: linear-gradient(135deg, #4a8b90, #bcb5b5);
-    }
+  .description {
+    width: 500px;
+    text-align: left;
+    padding: 15px;
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 15px;
+    background: linear-gradient(135deg, #4a8b90, #bcb5b5);
+  }
 
-    .description h2 {
-      text-align: center;
-      color: #000;
-    }
+  .description h2 { text-align: center; color: #000; }
+  .description p, .description h4 { color: #333; font-size: 14px; }
 
-    .description p {
-      color: #333;
-      font-size: 14px;
-    }
+  /* PDF просмотрщик */
+  .pdf-viewer {
+    width: 90%;
+    height: 600px;
+    margin: 30px auto;
+    border: 2px solid #444;
+    border-radius: 10px;
+    display: none;
+  }
 
-    /* PDF просмотрщик */
-    .pdf-viewer {
-      width: 90%;
-      height: 600px;
-      margin: 30px auto;
-      border: 2px solid #444;
-      border-radius: 10px;
-      display: none;
-    }
-
-  </style>
+</style>
 </head>
 <body>
-  <h1>Легкий способ выучить Python</h1>
 
-  <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
-  <br>
+<h1>Легкий способ выучить Python</h1>
 
-  <!-- Кнопка открытия PDF -->
-  <button class="btn" id="readBtn">Читать онлайн</button>
+<img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
+<br>
 
-  <!-- Встроенный PDF -->
-  <iframe id="pdfFrame" class="pdf-viewer"></iframe>
+<button class="btn" id="readBtn">Читать онлайн</button>
 
-  <p>Описание книги по Python...</p>
+<!-- PDF -->
+<iframe id="pdfFrame" class="pdf-viewer"></iframe>
 
-  <div class="description-wrapper">
-    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
-    <nav class="description" id="nav-python" hidden>
-      <h2>Книга Легкий способ выучить Python:</h2>
-      <h4>
-        Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»
-        (основана на примерах из Python-2), Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3.
-        Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
-        тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками,
-        размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
-      </h4>
-    </nav>
-  </div>
+<p>Описание книги по Python...</p>
 
-  <script>
-    const btn = document.getElementById('readBtn');
-    const frame = document.getElementById('pdfFrame');
-    let isOpen = false;
+<div class="description-wrapper">
+  <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+  <nav class="description" id="nav-python" hidden>
+    <h2>Книга Легкий способ выучить Python:</h2>
+    <h4>
+      Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»
+      (основана на примерах из Python-2), Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3.
+      Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
+      тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками,
+      размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
+    </h4>
+  </nav>
+</div>
 
-    btn.addEventListener('click', () => {
-      isOpen = !isOpen;
-      if (isOpen) {
-        frame.src = 'pdf/Legkiy_sposob_vyuchit_Python_3.pdf';
-        frame.style.display = 'block';
-        btn.textContent = 'Скрыть книгу';
-        frame.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        frame.style.display = 'none';
-        btn.textContent = 'Читать онлайн';
-      }
-    });
-  </script>
+<script>
+const btn = document.getElementById('readBtn');
+const frame = document.getElementById('pdfFrame');
+let isOpen = false;
 
-  <br><br>
+// Кодируем имя PDF для корректного URL
+const pdfPath = 'pdf/книга Легкий способ выучить Python.pdf';
+const encodedPdfPath = encodeURIComponent(pdfPath).replace(/%2F/g, '/');
+
+btn.addEventListener('click', () => {
+  isOpen = !isOpen;
+  if (isOpen) {
+    frame.src = encodedPdfPath;
+    frame.style.display = 'block';
+    btn.textContent = 'Скрыть книгу';
+    frame.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    frame.style.display = 'none';
+    btn.textContent = 'Читать онлайн';
+  }
+});
+</script>
+
 </body>
 </html>
