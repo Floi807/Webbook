@@ -40,13 +40,13 @@
       text-decoration: none;
       border-radius: 10px;
       transition: background-color 0.3s ease;
+      cursor: pointer;
     }
 
     .btn:hover {
       background-color: #0056b3;
     }
 
-    /* Новый контейнер */
     .description-wrapper {
       display: flex;
       flex-direction: column;
@@ -55,10 +55,11 @@
       margin-top: 20px;
     }
 
-    .desc{
+    .desc {
       width: 13em;
       height: 35px;
       border-radius: 7px;
+      cursor: pointer;
     }
 
     .description {
@@ -70,7 +71,6 @@
       background: linear-gradient(135deg, #4a8b90, #bcb5b5);
     }
 
-  
     .description h2 {
       text-align: center;
       color: #000;
@@ -81,6 +81,16 @@
       font-size: 14px;
     }
 
+    /* PDF просмотрщик */
+    .pdf-viewer {
+      width: 90%;
+      height: 600px;
+      margin: 30px auto;
+      border: 2px solid #444;
+      border-radius: 10px;
+      display: none;
+    }
+
   </style>
 </head>
 <body>
@@ -89,27 +99,47 @@
   <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
   <br>
 
-  <a class="btn" href="pdf/Legkiy_sposob_vyuchit_Python_3.pdf" target="_blank">Читать онлайн</a>
+  <!-- Кнопка открытия PDF -->
+  <button class="btn" id="readBtn">Читать онлайн</button>
+
+  <!-- Встроенный PDF -->
+  <iframe id="pdfFrame" class="pdf-viewer"></iframe>
 
   <p>Описание книги по Python...</p>
-
 
   <div class="description-wrapper">
     <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
     <nav class="description" id="nav-python" hidden>
       <h2>Книга Легкий способ выучить Python:</h2>
-      <h4>Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»
-          (основана на примерах из Python-2), Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3.
-          Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
-          тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками,
-          размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
+      <h4>
+        Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»
+        (основана на примерах из Python-2), Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3.
+        Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
+        тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками,
+        размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
       </h4>
     </nav>
   </div>
 
-<br><br>
+  <script>
+    const btn = document.getElementById('readBtn');
+    const frame = document.getElementById('pdfFrame');
+    let isOpen = false;
+
+    btn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      if (isOpen) {
+        frame.src = 'pdf/Legkiy_sposob_vyuchit_Python_3.pdf';
+        frame.style.display = 'block';
+        btn.textContent = 'Скрыть книгу';
+        frame.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        frame.style.display = 'none';
+        btn.textContent = 'Читать онлайн';
+      }
+    });
+  </script>
+
+  <br><br>
 </body>
 </html>
-
-
-
