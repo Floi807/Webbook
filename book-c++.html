@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <title>Легкий способ выучить Python</title>
   <style>
-    body {
+   body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      background-color: #f9f9f9;
+      background: linear-gradient(135deg, #4a8b90, #e3dbdb);
       text-align: center;
     }
 
@@ -24,20 +24,21 @@
     }
 
     p {
-      max-width: 600px;
+      max-width: 700px;
       margin: 20px auto;
       font-size: 16px;
-      color: #555;
+      color: #ffffff;
     }
 
     .btn {
       display: inline-block;
+      width: 15em;
       margin-top: 20px;
       padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
+      background-color: #000000;
+      color: #ffffff;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 10px;
       transition: background-color 0.3s ease;
     }
 
@@ -54,16 +55,22 @@
       margin-top: 20px;
     }
 
+    .desc{
+      width: 13em;
+      height: 35px;
+      border-radius: 7px;
+    }
+
     .description {
       width: 500px;
-      height: 250px;
       text-align: left;
       padding: 15px;
       box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
       margin-top: 15px;
-      background-color: white;
+      background: linear-gradient(135deg, #4a8b90, #bcb5b5);
     }
 
+  
     .description h2 {
       text-align: center;
       color: #000;
@@ -73,30 +80,35 @@
       color: #333;
       font-size: 14px;
     }
+
   </style>
 </head>
 <body>
   <h1>Язык Программирования C++</h1>
 
   <img src="img/книга Язык Программирования C++.jpg" alt="Обложка книги">
+  <br>
 
-  <p>
-   Описание книги по Язык Программирования C++...
-  </p>
-       <div class="description-wrapper">
-         <button onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
-             <nav class="description" id="nav-c++" hidden>
-                <h2>Книга Язык Программирования C++:</h2>
-                <p>Книга, написанная автором языка C++ Бьёрном Страуструпом, представляет собой авторитетное и подробное руководство по языку C++.
-                   В ней рассматриваются как основы языка, так и продвинутые концепции, 
-                   включая объектно-ориентированное программирование, STL, namespaces, RTTI и cast-операторы.
-                    Издание включает множество практических примеров, полезных как новичкам, так и опытным программистам. 
-                    Специальное издание дополнено новыми приложениями по локализации и безопасной работе с исключениями,
-                     а также содержит исправления и уточнения. Книга ориентирована на программистов, преподавателей и студентов,
-                      желающих изучить C++ из первоисточника.</p>
-              </nav>
-          </div>
+  <a class="btn" href="/Webbook/pdf/Язык Программирования C++.pdf">Читать онлайн</a>
 
-  <a class="btn" href="/Practic/media/books_pdfs/Язык Программирования C++.pdf">Читать онлайн</a>
+  <p>Описание книги по Язык Программирования C++...</p>
+
+
+  <div class="description-wrapper">
+    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+    <nav class="description" id="nav-c++" hidden>
+        <h2>Книга Язык Программирования C++:</h2>
+        <h4>Книга, написанная автором языка C++ Бьёрном Страуструпом, представляет собой авторитетное и подробное руководство по языку C++.
+            В ней рассматриваются как основы языка, так и продвинутые концепции, 
+            включая объектно-ориентированное программирование, STL, namespaces, RTTI и cast-операторы.
+            Издание включает множество практических примеров, полезных как новичкам, так и опытным программистам. 
+            Специальное издание дополнено новыми приложениями по локализации и безопасной работе с исключениями,
+            а также содержит исправления и уточнения. Книга ориентирована на программистов, преподавателей и студентов,
+            желающих изучить C++ из первоисточника.
+          </h4>
+    </nav>
+  </div>
+
+  <br><br>
 </body>
 </html>
