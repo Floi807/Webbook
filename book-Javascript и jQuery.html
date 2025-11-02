@@ -7,7 +7,7 @@
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      background-color: #f9f9f9;
+      background: linear-gradient(135deg, #4a8b90, #e3dbdb);
       text-align: center;
     }
 
@@ -24,20 +24,21 @@
     }
 
     p {
-      max-width: 600px;
+      max-width: 700px;
       margin: 20px auto;
       font-size: 16px;
-      color: #555;
+      color: #ffffff;
     }
 
     .btn {
       display: inline-block;
+      width: 15em;
       margin-top: 20px;
       padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
+      background-color: #000000;
+      color: #ffffff;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 10px;
       transition: background-color 0.3s ease;
     }
 
@@ -54,15 +55,22 @@
       margin-top: 20px;
     }
 
+    .desc{
+      width: 13em;
+      height: 35px;
+      border-radius: 7px;
+    }
+
     .description {
       width: 500px;
       text-align: left;
       padding: 15px;
       box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
       margin-top: 15px;
-      background-color: white;
+      background: linear-gradient(135deg, #4a8b90, #bcb5b5);
     }
 
+  
     .description h2 {
       text-align: center;
       color: #000;
@@ -72,33 +80,41 @@
       color: #333;
       font-size: 14px;
     }
+
   </style>
 </head>
 <body>
   <h1>Книга Javascript и jQuery</h1>
 
   <img src="img/книга Javascript и jQuery.jpg" alt="Обложка книги">
+  <br>
 
-  <p>
-   Описание книги по Javascript и jQuery...
-  </p>
-      <div class="description-wrapper">
-         <button onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
-             <nav class="description" id="nav-javasc" hidden>
-                <h2>Книга Язык Программирования Javascript и jQuery:</h2>
-                <p>Книга Джона Дакетта предназначена для широкого круга читателей — от веб-дизайнеров и программистов до блогеров и маркетологов — и служит наглядным и доступным пособием по JavaScript и jQuery. Она объясняет основы программирования и помогает понять, как создавать и читать сценарии, делать сайты более интерактивными, удобными и современными.
-                  <br><br>
-                  С помощью понятных примеров и визуальной подачи вы научитесь:<br>
-                  ● писать и понимать JavaScript-код;<br>
-                  ● использовать jQuery для упрощения задач;<br>
-                  ● реализовывать популярные веб-приёмы;<br>
-                  ● применять Ajax, API, JSON;<br>
-                  ● улучшать формы и проверять данные;<br>
-                  ● реализовывать поиск, фильтрацию и сортировку.<br><br>
-                  Книга подходит как для новичков, так и для тех, кто уже начал работать с JavaScript, и требует только базовых знаний HTML и CSS.</p>
-              </nav>
-        </div>
+  <a class="btn" href="/Webbook/pdf/Javascript и jQuery.pdf">Читать онлайн</a>
 
-  <a class="btn" href="/Practic/media/books_pdfs/Javascript и jQuery.pdf">Читать онлайн</a>
+  <p>Описание книги по Javascript и jQuery...</p>
+
+
+  <div class="description-wrapper">
+    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+    <nav class="description" id="nav-javasc" hidden>
+        <h2>Книга Язык Программирования Javascript и jQuery:</h2>
+        <h4>Книга Джона Дакетта предназначена для широкого круга читателей — от веб-дизайнеров
+            и программистов до блогеров и маркетологов — и служит наглядным и доступным пособием
+            по JavaScript и jQuery. Она объясняет основы программирования и помогает понять, как
+            создавать и читать сценарии, делать сайты более интерактивными, удобными и современными.
+            <br><br>
+            С помощью понятных примеров и визуальной подачи вы научитесь:<br>
+            ● писать и понимать JavaScript-код;<br>
+            ● использовать jQuery для упрощения задач;<br>
+            ● реализовывать популярные веб-приёмы;<br>
+            ● применять Ajax, API, JSON;<br>
+            ● улучшать формы и проверять данные;<br>
+            ● реализовывать поиск, фильтрацию и сортировку.<br><br>
+             Книга подходит как для новичков, так и для тех, кто уже начал работать с JavaScript,
+            и требует только базовых знаний HTML и CSS.</h4>
+    </nav>
+  </div>
+
+<br><br><br>
 </body>
 </html>
