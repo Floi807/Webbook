@@ -1,229 +1,145 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Легкий способ выучить Python</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background: linear-gradient(135deg, #4a8b90, #e3dbdb);
-    text-align: center;
-  }
+  <meta charset="UTF-8">
+  <title>Легкий способ выучить Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: linear-gradient(135deg, #4a8b90, #e3dbdb);
+      text-align: center;
+    }
 
-  h1 { color: #333; }
+    h1 {
+      color: #333;
+    }
 
-  img {
-    max-width: 300px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    margin: 20px 0;
-  }
+    img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin: 20px 0;
+    }
 
-  p {
-    max-width: 700px;
-    margin: 20px auto;
-    font-size: 16px;
-    color: #ffffff;
-  }
+    p {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 16px;
+      color: #ffffff;
+    }
 
-  .btn {
-    display: inline-block;
-    width: 15em;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #000000;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-  }
+    .btn {
+      display: inline-block;
+      width: 15em;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
 
-  .btn:hover { background-color: #0056b3; }
+    .btn:hover {
+      background-color: #0056b3;
+    }
 
-  .description-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
+    .description-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
 
-  .desc { width: 13em; height: 35px; border-radius: 7px; cursor: pointer; }
+    .desc {
+      width: 13em;
+      height: 35px;
+      border-radius: 7px;
+      cursor: pointer;
+    }
 
-  .description {
-    width: 500px;
-    text-align: left;
-    padding: 15px;
-    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 15px;
-    background: linear-gradient(135deg, #4a8b90, #bcb5b5);
-  }
+    .description {
+      width: 500px;
+      text-align: left;
+      padding: 15px;
+      box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 15px;
+      background: linear-gradient(135deg, #4a8b90, #bcb5b5);
+    }
 
-  .description h2 { text-align: center; color: #000; }
-  .description p, .description h4 { color: #333; font-size: 14px; }
+    .description h2 {
+      text-align: center;
+      color: #000;
+    }
 
-  /* PDF контейнер */
-  .pdf-wrapper {
-    width: 90%;
-    height: 600px;
-    margin: 30px auto;
-    border: 2px solid #444;
-    border-radius: 10px;
-    display: none;
-    position: relative;
-    background: #fff;
-  }
+    .description p {
+      color: #333;
+      font-size: 14px;
+    }
 
-  .pdf-viewer {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
+    /* PDF просмотрщик */
+    .pdf-viewer {
+      width: 90%;
+      height: 600px;
+      margin: 30px auto;
+      border: 2px solid #444;
+      border-radius: 10px;
+      display: none;
+    }
 
-  /* Ручки для растягивания */
-  .resizer {
-    width: 12px;
-    height: 12px;
-    background: #0056b3;
-    position: absolute;
-    border-radius: 50%;
-    z-index: 10;
-  }
-
-  .resizer.tl { top: -6px; left: -6px; cursor: nwse-resize; }
-  .resizer.tr { top: -6px; right: -6px; cursor: nesw-resize; }
-  .resizer.bl { bottom: -6px; left: -6px; cursor: nesw-resize; }
-  .resizer.br { bottom: -6px; right: -6px; cursor: nwse-resize; }
-  .resizer.t { top: -6px; left: 50%; transform: translateX(-50%); cursor: ns-resize; }
-  .resizer.b { bottom: -6px; left: 50%; transform: translateX(-50%); cursor: ns-resize; }
-  .resizer.l { left: -6px; top: 50%; transform: translateY(-50%); cursor: ew-resize; }
-  .resizer.r { right: -6px; top: 50%; transform: translateY(-50%); cursor: ew-resize; }
-
-</style>
+  </style>
 </head>
 <body>
+  <h1>Легкий способ выучить Python</h1>
 
-<h1>Легкий способ выучить Python</h1>
+  <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
+  <br>
 
-<img src="./img/Legkiy_sposob_cover.jpg" alt="Обложка книги">
-<br>
+  <!-- Кнопка открытия PDF -->
+  <button class="btn" id="readBtn">Читать онлайн</button>
 
-<button class="btn" id="readBtn">Читать онлайн</button>
-
-<!-- PDF контейнер -->
-<div class="pdf-wrapper" id="pdfWrapper">
+  <!-- Встроенный PDF -->
   <iframe id="pdfFrame" class="pdf-viewer"></iframe>
 
-  <!-- Ручки для растягивания -->
-  <div class="resizer tl"></div>
-  <div class="resizer tr"></div>
-  <div class="resizer bl"></div>
-  <div class="resizer br"></div>
-  <div class="resizer t"></div>
-  <div class="resizer b"></div>
-  <div class="resizer l"></div>
-  <div class="resizer r"></div>
-</div>
+  <p>Описание книги по Python...</p>
 
-<p>Описание книги по Python...</p>
+  <div class="description-wrapper">
+    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+    <nav class="description" id="nav-python" hidden>
+      <h2>Книга Легкий способ выучить Python:</h2>
+      <h4>
+        Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»
+        (основана на примерах из Python-2), Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3.
+        Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
+        тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками,
+        размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
+      </h4>
+    </nav>
+  </div>
 
-<div class="description-wrapper">
-  <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
-  <nav class="description" id="nav-python" hidden>
-    <h2>Книга Легкий способ выучить Python:</h2>
-    <h4>
-      Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»...
-    </h4>
-  </nav>
-</div>
+  <script>
+    const btn = document.getElementById('readBtn');
+    const frame = document.getElementById('pdfFrame');
+    let isOpen = false;
 
-<script>
-const btn = document.getElementById('readBtn');
-const wrapper = document.getElementById('pdfWrapper');
-const frame = document.getElementById('pdfFrame');
-let isOpen = false;
+    btn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      if (isOpen) {
+        frame.src = 'pdf/Legkiy_sposob_vyuchit_Python_3.pdf';
+        frame.style.display = 'block';
+        btn.textContent = 'Скрыть книгу';
+        frame.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        frame.style.display = 'none';
+        btn.textContent = 'Читать онлайн';
+      }
+    });
+  </script>
 
-// Путь к PDF относительно репозитория на GitHub Pages
-const pdfPath = './pdf/Legkiy_sposob_vyuchit_Python.pdf';
-
-btn.addEventListener('click', () => {
-  isOpen = !isOpen;
-  if (isOpen) {
-    frame.src = pdfPath;
-    wrapper.style.display = 'block';
-    btn.textContent = 'Скрыть книгу';
-    wrapper.scrollIntoView({ behavior: 'smooth' });
-  } else {
-    wrapper.style.display = 'none';
-    btn.textContent = 'Читать онлайн';
-  }
-});
-
-// Растягивание PDF
-const resizers = wrapper.querySelectorAll('.resizer');
-let currentResizer;
-let originalWidth, originalHeight, originalX, originalY, originalMouseX, originalMouseY;
-
-resizers.forEach(resizer => {
-  resizer.addEventListener('mousedown', function(e) {
-    e.preventDefault();
-    currentResizer = resizer;
-    const rect = wrapper.getBoundingClientRect();
-    originalWidth = rect.width;
-    originalHeight = rect.height;
-    originalX = rect.left + window.scrollX;
-    originalY = rect.top + window.scrollY;
-    originalMouseX = e.clientX;
-    originalMouseY = e.clientY;
-
-    window.addEventListener('mousemove', resize);
-    window.addEventListener('mouseup', stopResize);
-  });
-});
-
-function resize(e) {
-  if (!currentResizer) return;
-  let dx = e.clientX - originalMouseX;
-  let dy = e.clientY - originalMouseY;
-
-  if (currentResizer.classList.contains('br')) {
-    wrapper.style.width = originalWidth + dx + 'px';
-    wrapper.style.height = originalHeight + dy + 'px';
-  } else if (currentResizer.classList.contains('bl')) {
-    wrapper.style.width = originalWidth - dx + 'px';
-    wrapper.style.height = originalHeight + dy + 'px';
-    wrapper.style.left = originalX + dx + 'px';
-  } else if (currentResizer.classList.contains('tr')) {
-    wrapper.style.width = originalWidth + dx + 'px';
-    wrapper.style.height = originalHeight - dy + 'px';
-    wrapper.style.top = originalY + dy + 'px';
-  } else if (currentResizer.classList.contains('tl')) {
-    wrapper.style.width = originalWidth - dx + 'px';
-    wrapper.style.height = originalHeight - dy + 'px';
-    wrapper.style.left = originalX + dx + 'px';
-    wrapper.style.top = originalY + dy + 'px';
-  } else if (currentResizer.classList.contains('r')) {
-    wrapper.style.width = originalWidth + dx + 'px';
-  } else if (currentResizer.classList.contains('l')) {
-    wrapper.style.width = originalWidth - dx + 'px';
-    wrapper.style.left = originalX + dx + 'px';
-  } else if (currentResizer.classList.contains('b')) {
-    wrapper.style.height = originalHeight + dy + 'px';
-  } else if (currentResizer.classList.contains('t')) {
-    wrapper.style.height = originalHeight - dy + 'px';
-    wrapper.style.top = originalY + dy + 'px';
-  }
-}
-
-function stopResize() {
-  window.removeEventListener('mousemove', resize);
-  window.removeEventListener('mouseup', stopResize);
-  currentResizer = null;
-}
-</script>
-
+  <br><br>
 </body>
 </html>
