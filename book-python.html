@@ -63,6 +63,117 @@
       background-color: white;
     }
 
+    .description h2 {
+      text-align: center;
+      color: #000;
+    }
+
+    .description p {
+      color: #333;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Java</h1>
+
+  <img src="img/Java.jpg" alt="Обложка книги">
+
+  <p>
+   Описание книги по Python...
+  </p>
+      <div class="description-wrapper">
+         <button onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+              <nav class="description" id="nav-java" hidden>
+                <h2>Книга Язык Программирования Java:</h2>
+                <p>Книга Алексея Васильева «Программирование на Java» — это доступное и пошаговое руководство по изучению объектно-ориентированного программирования на языке Java с нуля. Она идеально подходит для начинающих и самостоятельного обучения.
+                  <br><br>
+                  Основные особенности книги:<br>
+                  ● Объяснение базовых понятий: классы, объекты, принципы ООП.<br>
+                  ● Подробный разбор кода с пояснениями и практическими примерами.<br>
+                  ● Переход от теории к созданию графических приложений и апплетов.<br>
+                  ● Актуальные примеры, применимые в реальной работе.<br>
+                  ● Бесплатные дополнительные материалы для практики.<br><br>
+                  Книга написана простым, понятным языком и основана на проверенной методике обучения. Автор — опытный преподаватель и ученый, автор более 15 книг по программированию.</p>
+              </nav>
+        </div>
+
+  <a class="btn" href="/Practic/media/books_pdfs/Программирование на Java для начинающих.pdf">Читать онлайн</a>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Легкий способ выучить Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: linear-gradient(135deg, #4a8b90, #e3dbdb);
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin: 20px 0;
+    }
+
+    p {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 15em;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Новый контейнер */
+    .description-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .desc{
+      width: 13em;
+      height: 35px;
+      border-radius: 7px;
+    }
+
+    .description {
+      width: 500px;
+      text-align: left;
+      padding: 15px;
+      box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 15px;
+      background: linear-gradient(135deg, #4a8b90, #bcb5b5);
+    }
+
   
     .description h2 {
       text-align: center;
@@ -77,30 +188,38 @@
   </style>
 </head>
 <body>
-  <h1>Легкий способ выучить Python</h1>
+  <h1>Java</h1>
 
-  <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
+  <img src="img/Java.jpg" alt="Обложка книги">
+  <br>
+
+  <a class="btn" href="/Webbook/pdf/Программирование на Java для начинающих.pdf">Читать онлайн</a>
 
   <p>Описание книги по Python...</p>
 
-  <!-- Центрируем всё -->
+
   <div class="description-wrapper">
-    <button onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
-    <nav class="description" id="nav-python" hidden>
-      <h2>Книга Легкий способ выучить Python:</h2>
-      <p>
-        Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python» (основана на примерах из Python-2),
-        Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3. 
-        Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
-        тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками, 
-        размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
-      </p>
+    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+    <nav class="description" id="nav-java" hidden>
+      <h2>Книга Язык Программирования Java:</h2>
+      <h4>Книга Алексея Васильева «Программирование на Java» — это доступное и пошаговое руководство
+         по изучению объектно-ориентированного программирования на языке Java с нуля. Она идеально подходит
+         для начинающих и самостоятельного обучения.
+         <br><br>
+         Основные особенности книги:<br>
+         ● Объяснение базовых понятий: классы, объекты, принципы ООП.<br>
+         ● Подробный разбор кода с пояснениями и практическими примерами.<br>
+         ● Переход от теории к созданию графических приложений и апплетов.<br>
+         ● Актуальные примеры, применимые в реальной работе.<br>
+         ● Бесплатные дополнительные материалы для практики.<br><br>
+         Книга написана простым, понятным языком и основана на проверенной методике обучения.
+         Автор — опытный преподаватель и ученый, автор более 15 книг по программированию.</h4>
     </nav>
   </div>
 
-  <br><br>
-  <a class="btn" href="/Practic/media/books_pdfs/Легкий_способ_выучить_Python_3.pdf">Читать онлайн</a>
+<br>
 </body>
 </html>
+
 
 
