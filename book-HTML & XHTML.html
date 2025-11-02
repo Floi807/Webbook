@@ -7,7 +7,7 @@
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      background-color: #f9f9f9;
+      background: linear-gradient(135deg, #4a8b90, #e3dbdb);
       text-align: center;
     }
 
@@ -24,20 +24,21 @@
     }
 
     p {
-      max-width: 600px;
+      max-width: 700px;
       margin: 20px auto;
       font-size: 16px;
-      color: #555;
+      color: #ffffff;
     }
 
     .btn {
       display: inline-block;
+      width: 15em;
       margin-top: 20px;
       padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
+      background-color: #000000;
+      color: #ffffff;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 10px;
       transition: background-color 0.3s ease;
     }
 
@@ -54,15 +55,22 @@
       margin-top: 20px;
     }
 
+    .desc{
+      width: 13em;
+      height: 35px;
+      border-radius: 7px;
+    }
+
     .description {
       width: 500px;
       text-align: left;
       padding: 15px;
       box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
       margin-top: 15px;
-      background-color: white;
+      background: linear-gradient(135deg, #4a8b90, #bcb5b5);
     }
 
+  
     .description h2 {
       text-align: center;
       color: #000;
@@ -72,33 +80,41 @@
       color: #333;
       font-size: 14px;
     }
+
   </style>
 </head>
 <body>
   <h1>Книга HTML & XHTML. Подробное руководство</h1>
 
   <img src="img/книга HTML & XHTML. Подробное руководство.jpg" alt="Обложка книги">
+  <br>
 
-  <p>
-   Описание книги по HTML & XHTML. Подробное руководство...
-  </p>
-      <div class="description-wrapper">
-         <button onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
-              <nav class="description" id="nav-html" hidden>
-                <h2>Книга HTML & XHTML. Подробное руководство:</h2>
-                <p>Шестое издание книги «HTML и XHTML» авторов Билла Кеннеди и Чака Муссиано — это полное и современное руководство по HTML, XHTML и CSS. Оно сочетает учебное пособие для начинающих и справочник для опытных веб-разработчиков. В книге подробно описаны стандарты HTML 4.01, XHTML 1.0, CSS2, а также представлены обзоры будущих стандартов XHTML 2 и CSS3, и инициатив, таких как XForms, XFrames и модульный XHTML.
-                   <br><br>
-                   Рассматриваются темы:
-                   <br>
-                   ● синтаксис и семантика HTML/XHTML,<br>
-                   ● работа с таблицами стилей, фреймами, формами и мультимедиа,<br>
-                   ● интеграция с JavaScript и Java-апплетами,<br>
-                   ● особенности CSS и их взаимодействие,<br>
-                   ● работа с автоматически сгенерированным HTML-кодом.<br><br>
-                   Книга помогает избегать ошибок в вёрстке и подходит как новичкам, так и профессионалам. </p>
-              </nav>
-        </div>
+  <a class="btn" href="/Webbook/pdf/HTML & XHTML. Подробное руководствоo 6 издание.pdf">Читать онлайн</a>
 
-  <a class="btn" href="/Practic/media/books_pdfs/Язык Программирования C++.pdf">Читать онлайн</a>
+  <p>Описание книги по HTML & XHTML. Подробное руководство...</p>
+
+
+  <div class="description-wrapper">
+    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+    <nav class="description" id="nav-html" hidden>
+        <h2>Книга HTML & XHTML. Подробное руководство:</h2>
+        <h4>Шестое издание книги «HTML и XHTML» авторов Билла Кеннеди и Чака Муссиано — это полное
+            и современное руководство по HTML, XHTML и CSS. Оно сочетает учебное пособие для 
+            начинающих и справочник для опытных веб-разработчиков. В книге подробно описаны стандарты
+            HTML 4.01, XHTML 1.0, CSS2, а также представлены обзоры будущих стандартов XHTML 2 и CSS3,
+            и инициатив, таких как XForms, XFrames и модульный XHTML.
+            <br><br>
+            Рассматриваются темы:
+            <br>
+            ● синтаксис и семантика HTML/XHTML,<br>
+            ● работа с таблицами стилей, фреймами, формами и мультимедиа,<br>
+            ● интеграция с JavaScript и Java-апплетами,<br>
+            ● особенности CSS и их взаимодействие,<br>
+            ● работа с автоматически сгенерированным HTML-кодом.<br><br>
+            Книга помогает избегать ошибок в вёрстке и подходит как новичкам, так и профессионалам. </h4>
+    </nav>
+  </div>
+
+<br><br>
 </body>
 </html>
