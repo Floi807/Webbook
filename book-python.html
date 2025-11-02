@@ -108,7 +108,7 @@
 
 <h1>Легкий способ выучить Python</h1>
 
-<img src="img/Legkiy_sposob_cover.jpg" alt="Обложка книги">
+<img src="./img/Legkiy_sposob_cover.jpg" alt="Обложка книги">
 <br>
 
 <button class="btn" id="readBtn">Читать онлайн</button>
@@ -146,8 +146,8 @@ const wrapper = document.getElementById('pdfWrapper');
 const frame = document.getElementById('pdfFrame');
 let isOpen = false;
 
-// Убедитесь, что имя PDF — латиница без пробелов
-const pdfPath = 'pdf/Legkiy_sposob_vyuchit_Python.pdf';
+// Путь к PDF относительно репозитория на GitHub Pages
+const pdfPath = './pdf/Legkiy_sposob_vyuchit_Python.pdf';
 
 btn.addEventListener('click', () => {
   isOpen = !isOpen;
@@ -174,8 +174,8 @@ resizers.forEach(resizer => {
     const rect = wrapper.getBoundingClientRect();
     originalWidth = rect.width;
     originalHeight = rect.height;
-    originalX = rect.left;
-    originalY = rect.top;
+    originalX = rect.left + window.scrollX;
+    originalY = rect.top + window.scrollY;
     originalMouseX = e.clientX;
     originalMouseY = e.clientY;
 
