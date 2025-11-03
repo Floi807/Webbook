@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Легкий способ выучить Python</title>
   <style>
+    /* Ваши существующие стили остаются без изменений */
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
@@ -86,9 +87,10 @@
       color: #000;
     }
 
-    .description p {
+    .description h4 {
       color: #333;
       font-size: 14px;
+      line-height: 1.5;
     }
 
     /* PDF просмотрщик */
@@ -120,6 +122,15 @@
       background-color: #c82333;
     }
 
+    .error-message {
+      color: #dc3545;
+      background: #f8d7da;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      display: none;
+    }
+
   </style>
 </head>
 <body>
@@ -128,22 +139,25 @@
   <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
   <br>
 
+  <!-- Сообщение об ошибке -->
+  <div class="error-message" id="errorMessage"></div>
+
   <!-- Кнопки для работы с PDF -->
   <div class="pdf-controls">
-    <button class="btn" onclick="showPDF()">Читать онлайн</button>
-    <a class="btn" href="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf" download style="text-decoration: none; margin-left: 10px;">
-      Скачать книгу
-    </a>
+    <button class="btn" onclick="testAndShowPDF()">Читать онлайн</button>
+    <button class="btn" onclick="downloadPDF()" style="margin-left: 10px;">Скачать книгу</button>
+    <button class="btn" onclick="checkPDF()" style="margin-left: 10px;">Проверить файл</button>
   </div>
 
   <!-- PDF просмотрщик -->
   <div class="pdf-viewer" id="pdfViewer">
-    <iframe src="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf" 
+    <iframe id="pdfFrame" 
+            src="" 
             width="100%" 
             height="100%" 
             style="border: none;">
       Ваш браузер не поддерживает PDF. 
-      <a href="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf">Скачайте книгу</a>
+      <a href="#" id="fallbackLink">Скачайте книгу</a>
     </iframe>
     <br>
     <button class="close-btn" onclick="hidePDF()">Закрыть просмотрщик</button>
@@ -168,17 +182,77 @@
   <br><br>
 
   <script>
-    function showPDF() {
-      document.getElementById('pdfViewer').style.display = 'block';
+    const pdfPath = '/Webbook/pdf/книга Легкий способ выучить Python_3.pdf';
+    const pdfViewer = document.getElementById('pdfViewer');
+    const pdfFrame = document.getElementById('pdfFrame');
+    const errorMessage = document.getElementById('errorMessage');
+    const fallbackLink = document.getElementById('fallbackLink');
+
+    // Обновляем ссылки
+    fallbackLink.href = pdfPath;
+
+    async function checkPDF() {
+      errorMessage.style.display = 'none';
+      try {
+        const response = await fetch(pdfPath, { method: 'HEAD' });
+        if (response.ok) {
+          showMessage('Файл существует и доступен!', 'success');
+        } else {
+          showMessage(`Ошибка: Файл не найден (статус: ${response.status})`, 'error');
+        }
+      } catch (error) {
+        showMessage(`Ошибка доступа к файлу: ${error.message}`, 'error');
+      }
+    }
+
+    function testAndShowPDF() {
+      errorMessage.style.display = 'none';
+      
+      // Показываем индикатор загрузки
+      pdfFrame.src = '';
+      pdfViewer.style.display = 'block';
+      
+      // Проверяем доступность файла перед загрузкой
+      fetch(pdfPath, { method: 'HEAD' })
+        .then(response => {
+          if (response.ok) {
+            // Файл доступен, загружаем в iframe
+            pdfFrame.src = pdfPath;
+          } else {
+            throw new Error(`HTTP ${response.status}`);
+          }
+        })
+        .catch(error => {
+          showMessage(`Не удалось загрузить PDF: ${error.message}. Проверьте путь к файлу.`, 'error');
+          pdfViewer.style.display = 'none';
+        });
+    }
+
+    function downloadPDF() {
+      // Создаем временную ссылку для скачивания
+      const link = document.createElement('a');
+      link.href = pdfPath;
+      link.download = 'Легкий способ выучить Python.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
 
     function hidePDF() {
-      document.getElementById('pdfViewer').style.display = 'none';
+      pdfViewer.style.display = 'none';
+      pdfFrame.src = ''; // Останавливаем загрузку
     }
 
     function toggleDescription() {
       const desc = document.getElementById('nav-python');
       desc.hidden = !desc.hidden;
+    }
+
+    function showMessage(text, type) {
+      errorMessage.textContent = text;
+      errorMessage.style.display = 'block';
+      errorMessage.style.color = type === 'error' ? '#dc3545' : '#28a745';
+      errorMessage.style.background = type === 'error' ? '#f8d7da' : '#d4edda';
     }
 
     // Закрыть PDF просмотрщик при нажатии Escape
@@ -187,6 +261,9 @@
         hidePDF();
       }
     });
+
+    // Проверяем файл при загрузке страницы
+    window.addEventListener('load', checkPDF);
   </script>
 </body>
 </html>
