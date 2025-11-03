@@ -41,6 +41,8 @@
       border-radius: 10px;
       transition: background-color 0.3s ease;
       cursor: pointer;
+      border: none;
+      font-size: 16px;
     }
 
     .btn:hover {
@@ -60,6 +62,14 @@
       height: 35px;
       border-radius: 7px;
       cursor: pointer;
+      background-color: #000000;
+      color: white;
+      border: none;
+      margin: 10px 0;
+    }
+
+    .desc:hover {
+      background-color: #0056b3;
     }
 
     .description {
@@ -89,6 +99,25 @@
       border: 2px solid #444;
       border-radius: 10px;
       display: none;
+      background: white;
+    }
+
+    .pdf-controls {
+      margin: 20px 0;
+    }
+
+    .close-btn {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .close-btn:hover {
+      background-color: #c82333;
     }
 
   </style>
@@ -99,12 +128,31 @@
   <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
   <br>
 
-  <a class="btn" href="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf">Читать онлайн</a>
+  <!-- Кнопки для работы с PDF -->
+  <div class="pdf-controls">
+    <button class="btn" onclick="showPDF()">Читать онлайн</button>
+    <a class="btn" href="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf" download style="text-decoration: none; margin-left: 10px;">
+      Скачать книгу
+    </a>
+  </div>
+
+  <!-- PDF просмотрщик -->
+  <div class="pdf-viewer" id="pdfViewer">
+    <iframe src="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf" 
+            width="100%" 
+            height="100%" 
+            style="border: none;">
+      Ваш браузер не поддерживает PDF. 
+      <a href="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf">Скачайте книгу</a>
+    </iframe>
+    <br>
+    <button class="close-btn" onclick="hidePDF()">Закрыть просмотрщик</button>
+  </div>
 
   <p>Описание книги по Python...</p>
 
   <div class="description-wrapper">
-    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+    <button class="desc" onclick="toggleDescription()">☰ Описание</button>
     <nav class="description" id="nav-python" hidden>
       <h2>Книга Легкий способ выучить Python:</h2>
       <h4>
@@ -118,5 +166,27 @@
   </div>
 
   <br><br>
+
+  <script>
+    function showPDF() {
+      document.getElementById('pdfViewer').style.display = 'block';
+    }
+
+    function hidePDF() {
+      document.getElementById('pdfViewer').style.display = 'none';
+    }
+
+    function toggleDescription() {
+      const desc = document.getElementById('nav-python');
+      desc.hidden = !desc.hidden;
+    }
+
+    // Закрыть PDF просмотрщик при нажатии Escape
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        hidePDF();
+      }
+    });
+  </script>
 </body>
 </html>
