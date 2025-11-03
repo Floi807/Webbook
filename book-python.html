@@ -33,20 +33,20 @@
     .btn {
       display: inline-block;
       width: 15em;
-      margin: 10px 5px;
+      margin-top: 20px;
       padding: 10px 20px;
       background-color: #000000;
       color: #ffffff;
       text-decoration: none;
       border-radius: 10px;
       transition: background-color 0.3s ease;
-      cursor: pointer;
     }
 
     .btn:hover {
       background-color: #0056b3;
     }
 
+    /* Новый контейнер */
     .description-wrapper {
       display: flex;
       flex-direction: column;
@@ -55,11 +55,10 @@
       margin-top: 20px;
     }
 
-    .desc {
+    .desc{
       width: 13em;
       height: 35px;
       border-radius: 7px;
-      cursor: pointer;
     }
 
     .description {
@@ -71,6 +70,7 @@
       background: linear-gradient(135deg, #4a8b90, #bcb5b5);
     }
 
+  
     .description h2 {
       text-align: center;
       color: #000;
@@ -81,86 +81,32 @@
       font-size: 14px;
     }
 
-    /* PDF.js контейнер */
-    #pdf-container {
-      width: 90%;
-      max-width: 900px;
-      margin: 30px auto;
-      border: 2px solid #444;
-      border-radius: 10px;
-      display: none; /* скрыт по умолчанию */
-      text-align: center;
-    }
-
-    canvas {
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-
   </style>
 </head>
 <body>
-  <h1>Легкий способ выучить Python</h1>
+  <h1>Книга Легкий способ выучить Python</h1>
 
   <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
   <br>
 
-  <!-- Кнопки чтения -->
-  <a class="btn" href="#" id="pdfBtn">Читать PDF</a>
-  <a class="btn" href="https://books.yandex.kz/reader/QAvzorqj?resource=book" target="_blank">
-    Читать на Яндекс.Книгах
-  </a>
+  <a class="btn" href="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf">Читать онлайн</a>
 
-  <p>Описание книги по Python...</p>
+  <p>Описание книги по Легкий способ выучить Python...</p>
+
 
   <div class="description-wrapper">
     <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
     <nav class="description" id="nav-python" hidden>
-      <h2>Книга Легкий способ выучить Python:</h2>
-      <h4>
-        Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»
-        (основана на примерах из Python-2), Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3.
-        Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
-        тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками,
-        размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
-      </h4>
+        <h2>Книга Язык Программирования Python:</h2>
+        <h4>Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»
+            (основана на примерах из Python-2), Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3.
+            Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
+            тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками,
+            размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
+        </h4>
     </nav>
   </div>
 
-  <!-- PDF.js контейнер -->
-  <div id="pdf-container"></div>
-
-  <!-- PDF.js библиотека -->
-  <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
-  <script>
-    var url = '/Webbook/pdf/книга.pdf'; // путь к PDF
-    var pdfContainer = document.getElementById('pdf-container');
-    var pdfLoaded = false;
-
-    document.getElementById('pdfBtn').addEventListener('click', function(e){
-      e.preventDefault();
-      pdfContainer.style.display = pdfContainer.style.display === 'none' ? 'block' : 'none';
-
-      if (!pdfLoaded) {
-        pdfjsLib.getDocument(url).promise.then(function(pdf) {
-          for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-            pdf.getPage(pageNum).then(function(page) {
-              var scale = 1.5;
-              var viewport = page.getViewport({scale: scale});
-              var canvas = document.createElement('canvas');
-              var context = canvas.getContext('2d');
-              canvas.height = viewport.height;
-              canvas.width = viewport.width;
-              pdfContainer.appendChild(canvas);
-              page.render({canvasContext: context, viewport: viewport});
-            });
-          }
-        });
-        pdfLoaded = true; // чтобы не загружать PDF повторно
-      }
-    });
-  </script>
-
+<br><br><br>
 </body>
 </html>
