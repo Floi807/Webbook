@@ -99,11 +99,7 @@
   <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
   <br>
 
-  <!-- Кнопка открытия PDF -->
-  <button class="btn" id="readBtn">Читать онлайн</button>
-
-  <!-- Встроенный PDF -->
-  <iframe id="pdfFrame" class="pdf-viewer"></iframe>
+  <a class="btn" href="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf">Читать онлайн</a>
 
   <p>Описание книги по Python...</p>
 
@@ -120,25 +116,6 @@
       </h4>
     </nav>
   </div>
-
-  <script>
-    const btn = document.getElementById('readBtn');
-    const frame = document.getElementById('pdfFrame');
-    let isOpen = false;
-
-    btn.addEventListener('click', () => {
-      isOpen = !isOpen;
-      if (isOpen) {
-        frame.src = 'pdf/Legkiy_sposob_vyuchit_Python.pdf';
-        frame.style.display = 'block';
-        btn.textContent = 'Скрыть книгу';
-        frame.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        frame.style.display = 'none';
-        btn.textContent = 'Читать онлайн';
-      }
-    });
-  </script>
 
   <br><br>
 </body>
