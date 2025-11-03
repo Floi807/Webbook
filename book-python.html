@@ -2,268 +2,605 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Легкий способ выучить Python</title>
+  <title>Легкий способ выучить Python - Чтение</title>
   <style>
-    /* Ваши существующие стили остаются без изменений */
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: linear-gradient(135deg, #4a8b90, #e3dbdb);
-      text-align: center;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    h1 {
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Шапка */
+    .reader-header {
+      background: #fff;
+      border-bottom: 1px solid #e6e6e6;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      font-size: 14px;
+      color: #0066cc;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .back-btn:hover {
+      background: #f0f0f0;
+    }
+
+    .book-title {
+      font-size: 16px;
+      font-weight: 500;
       color: #333;
     }
 
-    img {
-      max-width: 300px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      margin: 20px 0;
-    }
-
-    p {
-      max-width: 700px;
-      margin: 20px auto;
-      font-size: 16px;
-      color: #ffffff;
-    }
-
-    .btn {
-      display: inline-block;
-      width: 15em;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #000000;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: background-color 0.3s ease;
-      cursor: pointer;
-      border: none;
-      font-size: 16px;
-    }
-
-    .btn:hover {
-      background-color: #0056b3;
-    }
-
-    .description-wrapper {
+    .header-right {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      padding: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #666;
+      display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 20px;
     }
 
-    .desc {
-      width: 13em;
-      height: 35px;
-      border-radius: 7px;
-      cursor: pointer;
-      background-color: #000000;
-      color: white;
-      border: none;
-      margin: 10px 0;
-    }
-
-    .desc:hover {
-      background-color: #0056b3;
-    }
-
-    .description {
-      width: 500px;
-      text-align: left;
-      padding: 15px;
-      box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
-      margin-top: 15px;
-      background: linear-gradient(135deg, #4a8b90, #bcb5b5);
-    }
-
-    .description h2 {
-      text-align: center;
-      color: #000;
-    }
-
-    .description h4 {
+    .icon-btn:hover {
+      background: #f0f0f0;
       color: #333;
-      font-size: 14px;
-      line-height: 1.5;
     }
 
-    /* PDF просмотрщик */
-    .pdf-viewer {
-      width: 90%;
-      height: 600px;
-      margin: 30px auto;
-      border: 2px solid #444;
-      border-radius: 10px;
-      display: none;
+    /* Основной контейнер */
+    .reader-container {
+      display: flex;
+      height: calc(100vh - 60px);
+    }
+
+    /* Боковая панель с оглавлением */
+    .sidebar {
+      width: 300px;
+      background: #fff;
+      border-right: 1px solid #e6e6e6;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .book-cover {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .book-cover img {
+      width: 120px;
+      height: 160px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .book-info h1 {
+      font-size: 18px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .book-info .author {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .toc-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-item {
+      margin-bottom: 8px;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 8px 12px;
+      color: #666;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .toc-link:hover {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .toc-link.active {
+      background: #0066cc;
+      color: white;
+    }
+
+    /* Область чтения */
+    .reading-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #f8f8f8;
+    }
+
+    /* Панель инструментов */
+    .toolbar {
+      background: #fff;
+      border-bottom: 1px solid #e6e6e6;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toolbar-left, .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .font-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f8f8f8;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    .font-btn {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #666;
+      padding: 4px 8px;
+      border-radius: 3px;
+    }
+
+    .font-btn:hover {
+      background: #e6e6e6;
+    }
+
+    .font-size {
+      font-size: 14px;
+      color: #333;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    .theme-btn {
+      background: none;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .theme-btn:hover {
+      background: #f0f0f0;
+    }
+
+    /* Контейнер PDF */
+    .pdf-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      max-width: 800px;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       background: white;
     }
 
-    .pdf-controls {
-      margin: 20px 0;
+    .pdf-placeholder {
+      text-align: center;
+      padding: 60px 20px;
+      color: #666;
     }
 
-    .close-btn {
-      background-color: #dc3545;
+    .pdf-placeholder h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* Нижняя панель навигации */
+    .navigation {
+      background: #fff;
+      border-top: 1px solid #e6e6e6;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-btn {
+      background: #0066cc;
       color: white;
       border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
+      padding: 10px 20px;
+      border-radius: 6px;
       cursor: pointer;
-      margin-top: 10px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
     }
 
-    .close-btn:hover {
-      background-color: #c82333;
+    .nav-btn:hover {
+      background: #0052a3;
     }
 
-    .error-message {
-      color: #dc3545;
-      background: #f8d7da;
-      padding: 10px;
-      border-radius: 5px;
-      margin: 10px 0;
-      display: none;
+    .nav-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
     }
 
+    .page-info {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Темная тема */
+    body.dark-theme {
+      background: #1a1a1a;
+      color: #e6e6e6;
+    }
+
+    body.dark-theme .reader-header,
+    body.dark-theme .sidebar,
+    body.dark-theme .toolbar,
+    body.dark-theme .navigation {
+      background: #2d2d2d;
+      border-color: #404040;
+    }
+
+    body.dark-theme .book-title,
+    body.dark-theme .book-info h1,
+    body.dark-theme .toc-title {
+      color: #e6e6e6;
+    }
+
+    body.dark-theme .book-info .author {
+      color: #999;
+    }
+
+    body.dark-theme .toc-link {
+      color: #999;
+    }
+
+    body.dark-theme .toc-link:hover {
+      background: #404040;
+      color: #e6e6e6;
+    }
+
+    body.dark-theme .font-controls {
+      background: #404040;
+    }
+
+    body.dark-theme .font-btn,
+    body.dark-theme .theme-btn {
+      color: #999;
+    }
+
+    body.dark-theme .font-btn:hover,
+    body.dark-theme .theme-btn:hover {
+      background: #404040;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s;
+      }
+
+      .sidebar.active {
+        left: 0;
+      }
+
+      .reader-container {
+        height: calc(100vh - 120px);
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Легкий способ выучить Python</h1>
+  <!-- Шапка читалки -->
+  <header class="reader-header">
+    <div class="header-left">
+      <button class="back-btn" onclick="goBack()">
+        ← Назад
+      </button>
+      <div class="book-title">Легкий способ выучить Python</div>
+    </div>
+    <div class="header-right">
+      <button class="icon-btn" onclick="toggleSidebar()" title="Оглавление">
+        📑
+      </button>
+      <button class="icon-btn" onclick="toggleTheme()" title="Сменить тему">
+        🌙
+      </button>
+    </div>
+  </header>
 
-  <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
-  <br>
+  <!-- Основной контейнер -->
+  <div class="reader-container">
+    <!-- Боковая панель с оглавлением -->
+    <aside class="sidebar" id="sidebar">
+      <div class="book-cover">
+        <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
+      </div>
+      <div class="book-info">
+        <h1>Легкий способ выучить Python</h1>
+        <div class="author">Зед Шоу</div>
+      </div>
 
-  <!-- Сообщение об ошибке -->
-  <div class="error-message" id="errorMessage"></div>
+      <div class="toc-title">Оглавление</div>
+      <ul class="toc-list">
+        <li class="toc-item"><a href="#" class="toc-link active" onclick="changeChapter(1)">Введение</a></li>
+        <li class="toc-item"><a href="#" class="toc-link" onclick="changeChapter(2)">Глава 1: Первые шаги</a></li>
+        <li class="toc-item"><a href="#" class="toc-link" onclick="changeChapter(3)">Глава 2: Переменные и типы данных</a></li>
+        <li class="toc-item"><a href="#" class="toc-link" onclick="changeChapter(4)">Глава 3: Условные операторы</a></li>
+        <li class="toc-item"><a href="#" class="toc-link" onclick="changeChapter(5)">Глава 4: Циклы</a></li>
+        <li class="toc-item"><a href="#" class="toc-link" onclick="changeChapter(6)">Глава 5: Функции</a></li>
+        <li class="toc-item"><a href="#" class="toc-link" onclick="changeChapter(7)">Глава 6: Работа с файлами</a></li>
+        <li class="toc-item"><a href="#" class="toc-link" onclick="changeChapter(8)">Заключение</a></li>
+      </ul>
+    </aside>
 
-  <!-- Кнопки для работы с PDF -->
-  <div class="pdf-controls">
-    <button class="btn" onclick="testAndShowPDF()">Читать онлайн</button>
-    <button class="btn" onclick="downloadPDF()" style="margin-left: 10px;">Скачать книгу</button>
-    <button class="btn" onclick="checkPDF()" style="margin-left: 10px;">Проверить файл</button>
+    <!-- Область чтения -->
+    <main class="reading-area">
+      <!-- Панель инструментов -->
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="font-controls">
+            <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+            <span class="font-size" id="fontSize">100%</span>
+            <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <button class="theme-btn" onclick="toggleTheme()">
+            <span id="themeIcon">🌙</span> Тема
+          </button>
+        </div>
+      </div>
+
+      <!-- Контейнер PDF -->
+      <div class="pdf-container">
+        <iframe class="pdf-frame" id="pdfFrame" src="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf">
+          <div class="pdf-placeholder">
+            <h3>Не удалось загрузить PDF</h3>
+            <p>Попробуйте скачать книгу для чтения</p>
+            <button class="nav-btn" onclick="downloadBook()">📥 Скачать книгу</button>
+          </div>
+        </iframe>
+      </div>
+
+      <!-- Нижняя панель навигации -->
+      <div class="navigation">
+        <button class="nav-btn" onclick="prevPage()" id="prevBtn">
+          ← Назад
+        </button>
+        
+        <div class="page-info">
+          Страница <span id="currentPage">1</span> из <span id="totalPages">-</span>
+        </div>
+        
+        <button class="nav-btn" onclick="nextPage()" id="nextBtn">
+          Вперед →
+        </button>
+      </div>
+    </main>
   </div>
-
-  <!-- PDF просмотрщик -->
-  <div class="pdf-viewer" id="pdfViewer">
-    <iframe id="pdfFrame" 
-            src="" 
-            width="100%" 
-            height="100%" 
-            style="border: none;">
-      Ваш браузер не поддерживает PDF. 
-      <a href="#" id="fallbackLink">Скачайте книгу</a>
-    </iframe>
-    <br>
-    <button class="close-btn" onclick="hidePDF()">Закрыть просмотрщик</button>
-  </div>
-
-  <p>Описание книги по Python...</p>
-
-  <div class="description-wrapper">
-    <button class="desc" onclick="toggleDescription()">☰ Описание</button>
-    <nav class="description" id="nav-python" hidden>
-      <h2>Книга Легкий способ выучить Python:</h2>
-      <h4>
-        Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»
-        (основана на примерах из Python-2), Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3.
-        Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
-        тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками,
-        размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
-      </h4>
-    </nav>
-  </div>
-
-  <br><br>
 
   <script>
-    const pdfPath = '/Webbook/pdf/книга Легкий способ выучить Python_3.pdf';
-    const pdfViewer = document.getElementById('pdfViewer');
+    // Текущее состояние
+    let currentState = {
+      fontSize: 100,
+      currentPage: 1,
+      totalPages: 0,
+      darkTheme: false,
+      sidebarOpen: window.innerWidth > 768
+    };
+
+    // Элементы DOM
     const pdfFrame = document.getElementById('pdfFrame');
-    const errorMessage = document.getElementById('errorMessage');
-    const fallbackLink = document.getElementById('fallbackLink');
+    const sidebar = document.getElementById('sidebar');
+    const fontSizeElement = document.getElementById('fontSize');
+    const currentPageElement = document.getElementById('currentPage');
+    const totalPagesElement = document.getElementById('totalPages');
+    const themeIcon = document.getElementById('themeIcon');
 
-    // Обновляем ссылки
-    fallbackLink.href = pdfPath;
+    // Инициализация
+    function initReader() {
+      updateFontSize();
+      updateTheme();
+      updateSidebar();
+      
+      // Загружаем PDF
+      loadPDF();
+    }
 
-    async function checkPDF() {
-      errorMessage.style.display = 'none';
-      try {
-        const response = await fetch(pdfPath, { method: 'HEAD' });
-        if (response.ok) {
-          showMessage('Файл существует и доступен!', 'success');
-        } else {
-          showMessage(`Ошибка: Файл не найден (статус: ${response.status})`, 'error');
-        }
-      } catch (error) {
-        showMessage(`Ошибка доступа к файлу: ${error.message}`, 'error');
+    // Загрузка PDF
+    function loadPDF() {
+      const pdfPath = '/Webbook/pdf/книга Легкий способ выучить Python_3.pdf';
+      pdfFrame.src = pdfPath;
+      
+      // Симуляция загрузки страниц (в реальности нужно использовать PDF.js)
+      setTimeout(() => {
+        currentState.totalPages = 150; // Заглушка
+        updatePageInfo();
+      }, 1000);
+    }
+
+    // Навигация по страницам
+    function nextPage() {
+      if (currentState.currentPage < currentState.totalPages) {
+        currentState.currentPage++;
+        updatePageInfo();
+        scrollToTop();
       }
     }
 
-    function testAndShowPDF() {
-      errorMessage.style.display = 'none';
-      
-      // Показываем индикатор загрузки
-      pdfFrame.src = '';
-      pdfViewer.style.display = 'block';
-      
-      // Проверяем доступность файла перед загрузкой
-      fetch(pdfPath, { method: 'HEAD' })
-        .then(response => {
-          if (response.ok) {
-            // Файл доступен, загружаем в iframe
-            pdfFrame.src = pdfPath;
-          } else {
-            throw new Error(`HTTP ${response.status}`);
-          }
-        })
-        .catch(error => {
-          showMessage(`Не удалось загрузить PDF: ${error.message}. Проверьте путь к файлу.`, 'error');
-          pdfViewer.style.display = 'none';
-        });
+    function prevPage() {
+      if (currentState.currentPage > 1) {
+        currentState.currentPage--;
+        updatePageInfo();
+        scrollToTop();
+      }
     }
 
-    function downloadPDF() {
-      // Создаем временную ссылку для скачивания
+    function updatePageInfo() {
+      currentPageElement.textContent = currentState.currentPage;
+      totalPagesElement.textContent = currentState.totalPages;
+      
+      // Обновляем состояние кнопок
+      document.getElementById('prevBtn').disabled = currentState.currentPage === 1;
+      document.getElementById('nextBtn').disabled = currentState.currentPage === currentState.totalPages;
+    }
+
+    // Изменение размера шрифта (масштабирование iframe)
+    function changeFontSize(delta) {
+      currentState.fontSize = Math.max(50, Math.min(150, currentState.fontSize + delta * 10));
+      updateFontSize();
+    }
+
+    function updateFontSize() {
+      fontSizeElement.textContent = currentState.fontSize + '%';
+      pdfFrame.style.transform = `scale(${currentState.fontSize / 100})`;
+      pdfFrame.style.transformOrigin = 'center top';
+    }
+
+    // Смена темы
+    function toggleTheme() {
+      currentState.darkTheme = !currentState.darkTheme;
+      updateTheme();
+    }
+
+    function updateTheme() {
+      if (currentState.darkTheme) {
+        document.body.classList.add('dark-theme');
+        themeIcon.textContent = '☀️';
+      } else {
+        document.body.classList.remove('dark-theme');
+        themeIcon.textContent = '🌙';
+      }
+    }
+
+    // Управление боковой панелью
+    function toggleSidebar() {
+      currentState.sidebarOpen = !currentState.sidebarOpen;
+      updateSidebar();
+    }
+
+    function updateSidebar() {
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('active', currentState.sidebarOpen);
+      } else {
+        sidebar.style.display = currentState.sidebarOpen ? 'flex' : 'none';
+      }
+    }
+
+    // Смена главы
+    function changeChapter(chapterNumber) {
+      // Обновляем активную ссылку в оглавлении
+      document.querySelectorAll('.toc-link').forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // В реальном приложении здесь бы менялась страница PDF
+      currentState.currentPage = (chapterNumber - 1) * 20 + 1;
+      updatePageInfo();
+      scrollToTop();
+      
+      // На мобильных устройствах закрываем сайдбар после выбора главы
+      if (window.innerWidth <= 768) {
+        currentState.sidebarOpen = false;
+        updateSidebar();
+      }
+    }
+
+    // Вспомогательные функции
+    function scrollToTop() {
+      document.querySelector('.pdf-container').scrollTop = 0;
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+
+    function downloadBook() {
       const link = document.createElement('a');
-      link.href = pdfPath;
+      link.href = '/Webbook/pdf/книга Легкий способ выучить Python_3.pdf';
       link.download = 'Легкий способ выучить Python.pdf';
-      document.body.appendChild(link);
       link.click();
-      document.body.removeChild(link);
     }
 
-    function hidePDF() {
-      pdfViewer.style.display = 'none';
-      pdfFrame.src = ''; // Останавливаем загрузку
-    }
+    // Адаптивность
+    window.addEventListener('resize', updateSidebar);
 
-    function toggleDescription() {
-      const desc = document.getElementById('nav-python');
-      desc.hidden = !desc.hidden;
-    }
-
-    function showMessage(text, type) {
-      errorMessage.textContent = text;
-      errorMessage.style.display = 'block';
-      errorMessage.style.color = type === 'error' ? '#dc3545' : '#28a745';
-      errorMessage.style.background = type === 'error' ? '#f8d7da' : '#d4edda';
-    }
-
-    // Закрыть PDF просмотрщик при нажатии Escape
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        hidePDF();
-      }
-    });
-
-    // Проверяем файл при загрузке страницы
-    window.addEventListener('load', checkPDF);
+    // Инициализация при загрузке
+    document.addEventListener('DOMContentLoaded', initReader);
   </script>
 </body>
 </html>
