@@ -85,7 +85,7 @@
 <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
 <br>
 
-<button onclick="window.location.href='/Webbook/reader.html'">Читать онлайн</button>
+<button onclick="window.location.href='reader.html'">Читать онлайн</button>
 
 <iframe class="viewer" id="bookFrame" src=""></iframe>
 
@@ -113,7 +113,7 @@ let isOpen = false;
 btn.addEventListener('click', () => {
   isOpen = !isOpen;
   if (isOpen) {
-    frame.src = "books/Lieghkii sposob vyuchit' Python - Nieizviestnyi.epub";
+    frame.src = "books/python.epub";
     frame.style.display = "block";
     btn.textContent = "Скрыть книгу";
     frame.scrollIntoView({ behavior: "smooth" });
