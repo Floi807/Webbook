@@ -11,9 +11,7 @@
       text-align: center;
     }
 
-    h1 {
-      color: #333;
-    }
+    h1 { color: #333; }
 
     img {
       max-width: 300px;
@@ -40,13 +38,11 @@
       text-decoration: none;
       border-radius: 10px;
       transition: background-color 0.3s ease;
+      cursor: pointer;
     }
 
-    .btn:hover {
-      background-color: #0056b3;
-    }
+    .btn:hover { background-color: #0056b3; }
 
-    /* Новый контейнер */
     .description-wrapper {
       display: flex;
       flex-direction: column;
@@ -55,11 +51,7 @@
       margin-top: 20px;
     }
 
-    .desc{
-      width: 13em;
-      height: 35px;
-      border-radius: 7px;
-    }
+    .desc { width: 13em; height: 35px; border-radius: 7px; cursor: pointer; }
 
     .description {
       width: 500px;
@@ -70,42 +62,67 @@
       background: linear-gradient(135deg, #4a8b90, #bcb5b5);
     }
 
-  
-    .description h2 {
-      text-align: center;
-      color: #000;
-    }
+    .description h2 { text-align: center; color: #000; }
+    .description p, .description h4 { color: #333; font-size: 14px; }
 
-    .description p {
-      color: #333;
-      font-size: 14px;
+    /* Окно книги */
+    .viewer {
+      width: 90%;
+      height: 90vh;
+      border: 2px solid #333;
+      border-radius: 10px;
+      margin: 35px auto;
+      display: none;
+      resize: both;
+      overflow: auto;
     }
-
   </style>
 </head>
 <body>
-  <h1>Книга Легкий способ выучить Python</h1>
 
-  <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
-  <br>
+<h1>Книга Легкий способ выучить Python</h1>
 
-  <a class="btn" href="/Webbook/pdf/Легкий_способ_выучить_Python_3.html">Читать онлайн</a>
+<img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
+<br>
 
-  <p>Описание книги по Легкий способ выучить Python...</p>
+<button onclick="window.location.href='/Webbook/reader.html'">Читать онлайн</button>
 
+<iframe class="viewer" id="bookFrame" src=""></iframe>
 
-  <div class="description-wrapper">
-    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
-    <nav class="description" id="nav-python" hidden>
-        <h2>Книга Язык Программирования Python:</h2>
-        <h4>Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»
-            (основана на примерах из Python-2), Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3.
-            Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
-            тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками,
-            размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
-        </h4>
-    </nav>
-  </div>
+<p>Описание книги по Легкий способ выучить Python...</p>
+
+<div class="description-wrapper">
+  <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+  <nav class="description" id="nav-python" hidden>
+      <h2>Книга Язык Программирования Python:</h2>
+      <h4>
+        Новая книга автора знаменитого бестселлера-самоучителя «Легкий способ выучить Python»
+        (основана на примерах из Python-2), Зеда Шоу, поможет вам с не меньшей легкостью освоить Python-3.
+        Как и прежде, автор использует свою уникальную методику обучения, ставшую его визитной карточкой:
+        тщательно отобранные и проверенные тысячами людей практические примеры, подкрепленные видеоуроками,
+        размещенными на авторском сайте, и легкий юмор, поднимающий читателям настроение и позволяющий поверить в себя.
+      </h4>
+  </nav>
+</div>
+
+<script>
+const btn = document.getElementById('readBtn');
+const frame = document.getElementById('bookFrame');
+let isOpen = false;
+
+btn.addEventListener('click', () => {
+  isOpen = !isOpen;
+  if (isOpen) {
+    frame.src = "books/Lieghkii sposob vyuchit' Python - Nieizviestnyi.epub";
+    frame.style.display = "block";
+    btn.textContent = "Скрыть книгу";
+    frame.scrollIntoView({ behavior: "smooth" });
+  } else {
+    frame.style.display = "none";
+    btn.textContent = "Читать онлайн";
+  }
+});
+</script>
 
 <br><br><br>
 </body>
