@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8" />
 <title>Чтение книги</title>
-<script src="js/epub.min.js"></script>
+
+<script src="https://unpkg.com/epubjs/dist/epub.min.js"></script>
+
 <style>
+  body { margin:0; padding:0; background:#fafafa; }
   #viewer {
-    width: 100%;
-    height: 90vh;
-    border: 1px solid #000;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
   }
 </style>
+
 </head>
 <body>
-
 <div id="viewer"></div>
 
 <script>
-  var book = ePub("books/python.epub");
-  var rendition = book.renderTo("viewer", {width: "100%", height: "100%"});
+  const book = ePub("books/python.epub");
+  const rendition = book.renderTo("viewer", {
+    width: "100%",
+    height: "100%"
+  });
+
   rendition.display();
 </script>
 

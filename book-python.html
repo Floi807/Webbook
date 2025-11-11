@@ -64,18 +64,6 @@
 
     .description h2 { text-align: center; color: #000; }
     .description p, .description h4 { color: #333; font-size: 14px; }
-
-    /* Окно книги */
-    .viewer {
-      width: 90%;
-      height: 90vh;
-      border: 2px solid #333;
-      border-radius: 10px;
-      margin: 35px auto;
-      display: none;
-      resize: both;
-      overflow: auto;
-    }
   </style>
 </head>
 <body>
@@ -85,9 +73,8 @@
 <img src="img/книга Легкий способ выучить Python.jpg" alt="Обложка книги">
 <br>
 
-<button onclick="window.location.href='reader.html'">Читать онлайн</button>
+<button class="btn" onclick="window.location.href='reader.html'">Читать онлайн</button>
 
-<iframe class="viewer" id="bookFrame" src=""></iframe>
 
 <p>Описание книги по Легкий способ выучить Python...</p>
 
@@ -104,25 +91,6 @@
       </h4>
   </nav>
 </div>
-
-<script>
-const btn = document.getElementById('readBtn');
-const frame = document.getElementById('bookFrame');
-let isOpen = false;
-
-btn.addEventListener('click', () => {
-  isOpen = !isOpen;
-  if (isOpen) {
-    frame.src = "books/python.epub";
-    frame.style.display = "block";
-    btn.textContent = "Скрыть книгу";
-    frame.scrollIntoView({ behavior: "smooth" });
-  } else {
-    frame.style.display = "none";
-    btn.textContent = "Читать онлайн";
-  }
-});
-</script>
 
 <br><br><br>
 </body>
