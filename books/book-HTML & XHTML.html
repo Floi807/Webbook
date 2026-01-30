@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/Webbook/img/favicon.png">
+  <title>Легкий способ выучить Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: linear-gradient(135deg, #2A2E45);
+      text-align: center;
+    }
+
+    h1 { 
+      color: #e2dddd;
+      border: solid 5px #FF6A3D;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #FF6A3D;
+      display: inline-block;
+      padding: 10px 100px;
+     }
+
+     .container {
+      text-align: center;
+    }
+
+    img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin: 20px 0;
+    }
+
+    p {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 15em;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Новый контейнер */
+    .description-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .desc{
+      width: 13em;
+      height: 35px;
+      border-radius: 7px;
+    }
+
+    .description {
+      width: 500px;
+      text-align: left;
+      padding: 15px;
+      box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 15px;
+      background: #ff6a3dc4;
+    }
+
+  
+    .description h2 {
+      text-align: center;
+      color: #000;
+    }
+
+    .description h4 {
+      color: #333;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Книга HTML & XHTML. Подробное руководство</h1>
+  </div>
+
+  <img src="/Webbook/img/книга HTML & XHTML. Подробное руководство.jpg" alt="Обложка книги">
+  <br>
+
+  <a class="btn" href="/Webbook/pdf/HTML & XHTML. Подробное руководствоo 6 издание.pdf">Читать онлайн</a>
+
+  <p>Описание книги по HTML & XHTML. Подробное руководство...</p>
+
+
+  <div class="description-wrapper">
+    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+    <nav class="description" id="nav-html" hidden>
+        <h2>Книга HTML & XHTML. Подробное руководство:</h2>
+        <h4>Шестое издание книги «HTML и XHTML» авторов Билла Кеннеди и Чака Муссиано — это полное
+            и современное руководство по HTML, XHTML и CSS. Оно сочетает учебное пособие для 
+            начинающих и справочник для опытных веб-разработчиков. В книге подробно описаны стандарты
+            HTML 4.01, XHTML 1.0, CSS2, а также представлены обзоры будущих стандартов XHTML 2 и CSS3,
+            и инициатив, таких как XForms, XFrames и модульный XHTML.
+            <br><br>
+            Рассматриваются темы:
+            <br>
+            ● синтаксис и семантика HTML/XHTML,<br>
+            ● работа с таблицами стилей, фреймами, формами и мультимедиа,<br>
+            ● интеграция с JavaScript и Java-апплетами,<br>
+            ● особенности CSS и их взаимодействие,<br>
+            ● работа с автоматически сгенерированным HTML-кодом.<br><br>
+            Книга помогает избегать ошибок в вёрстке и подходит как новичкам, так и профессионалам. </h4>
+    </nav>
+  </div>
+
+<br><br>
+</body>
+</html>

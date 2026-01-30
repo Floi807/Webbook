@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/Webbook/img/favicon.png">
+  <title>Легкий способ выучить Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: linear-gradient(135deg, #2A2E45);
+      text-align: center;
+    }
+
+    h1 { 
+      color: #e2dddd;
+      border: solid 5px #FF6A3D;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #FF6A3D;
+      display: inline-block;
+      padding: 10px 100px;
+     }
+
+     .container {
+      text-align: center;
+    }
+
+    img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin: 20px 0;
+    }
+
+    p {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 15em;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Новый контейнер */
+    .description-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .desc{
+      width: 13em;
+      height: 35px;
+      border-radius: 7px;
+    }
+
+    .description {
+      width: 500px;
+      text-align: left;
+      padding: 15px;
+      box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 15px;
+      background: #ff6a3dc4;
+    }
+
+  
+    .description h2 {
+      text-align: center;
+      color: #000;
+    }
+
+    .description h4 {
+      color: #333;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>HTML и CSS</h1>
+  </div>
+
+  <img src="/Webbook/img/CSS.jpg" alt="Обложка книги">
+  <br>
+
+  <a class="btn" href="/Webbook/pdf/HTML_и_CSS_разработка.pdf">Читать онлайн</a>
+
+  <p>Описание книги по Python...</p>
+
+
+  <div class="description-wrapper">
+    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+    <nav class="description" id="nav-css" hidden>
+      <h2>Книга Язык Программирования HTML и CSS:</h2>
+      <h4>Книга Джона Дакетта — это простое и наглядное руководство по HTML и CSS,
+          предназначенное для всех, кто хочет научиться создавать современные и удобные веб-сайты.
+          Она подходит как новичкам, так и тем, кто хочет углубить знания и получить больше контроля над существующими сайтами.
+          <br><br>
+          С помощью визуального подхода, практических примеров и кратких кодов книга обучает:<br>
+          ● верстке с использованием HTML и CSS3,<br>
+          ● созданию структуры веб-страниц,<br>
+          ● работе с изображениями, аудио- и видеоконтентом,<br>
+          ● управлению типографикой и макетом сайта.<br><br>
+          Не требуя специальных знаний, книга помогает создать профессионально выглядящий и удобный веб-сайт.</h4>
+    </nav>
+  </div>
+
+<br>
+</body>
+</html>

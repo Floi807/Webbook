@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/Webbook/img/favicon.png">
+  <title>Легкий способ выучить Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: linear-gradient(135deg, #2A2E45);
+      text-align: center;
+    }
+
+    h1 { 
+      color: #e2dddd;
+      border: solid 5px #FF6A3D;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #FF6A3D;
+      display: inline-block;
+      padding: 10px 100px;
+     }
+
+     .container {
+      text-align: center;
+    }
+
+    img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin: 20px 0;
+    }
+
+    p {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 15em;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Новый контейнер */
+    .description-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .desc{
+      width: 13em;
+      height: 35px;
+      border-radius: 7px;
+    }
+
+    .description {
+      width: 500px;
+      text-align: left;
+      padding: 15px;
+      box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 15px;
+      background: linear-gradient(135deg, #4a8b90, #bcb5b5);
+    }
+
+  
+    .description h2 {
+      text-align: center;
+      color: #000;
+    }
+
+    .description p {
+      color: #333;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Книга Javascript и jQuery</h1>
+  </div>
+
+  <img src="/Webbook/img/книга Javascript и jQuery.jpg" alt="Обложка книги">
+  <br>
+
+  <a class="btn" href="/Webbook/pdf/Javascript и jQuery.pdf">Читать онлайн</a>
+
+  <p>Описание книги по Javascript и jQuery...</p>
+
+
+  <div class="description-wrapper">
+    <button class="desc" onclick="this.nextElementSibling.hidden ^= 1">☰ Описание</button>
+    <nav class="description" id="nav-javasc" hidden>
+        <h2>Книга Язык Программирования Javascript и jQuery:</h2>
+        <h4>Книга Джона Дакетта предназначена для широкого круга читателей — от веб-дизайнеров
+            и программистов до блогеров и маркетологов — и служит наглядным и доступным пособием
+            по JavaScript и jQuery. Она объясняет основы программирования и помогает понять, как
+            создавать и читать сценарии, делать сайты более интерактивными, удобными и современными.
+            <br><br>
+            С помощью понятных примеров и визуальной подачи вы научитесь:<br>
+            ● писать и понимать JavaScript-код;<br>
+            ● использовать jQuery для упрощения задач;<br>
+            ● реализовывать популярные веб-приёмы;<br>
+            ● применять Ajax, API, JSON;<br>
+            ● улучшать формы и проверять данные;<br>
+            ● реализовывать поиск, фильтрацию и сортировку.<br><br>
+             Книга подходит как для новичков, так и для тех, кто уже начал работать с JavaScript,
+            и требует только базовых знаний HTML и CSS.</h4>
+    </nav>
+  </div>
+
+<br><br><br>
+</body>
+</html>
