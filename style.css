@@ -1,6 +1,6 @@
 /* ====== ОБЩИЕ СТИЛИ ====== */
 body {
-    background: linear-gradient(135deg, #4a8b90, #bcb5b5);
+    background: linear-gradient(135deg, #2A2E45);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -15,24 +15,27 @@ h1 {
 
 .favicon{
     position: absolute;
+    align-items: center;
     left: 20px;
-    top: 5px;
+    top: 15px;
     width: 50px;
     height: 50px;
+    border-radius: 5px;
+    border: solid 2px;
 }
 
 .title {
-    border: solid 10px;
-    border-color: rgb(60, 60, 70);
-    color: rgb(207, 205, 205);
+    border: solid 5px rgb(0, 0, 0);
+    background: #FF6A3D;
+    color: #000000;
 }
 
 .titl {
   width: 200px;
   margin: 0 auto;
-  background: rgb(120, 120, 130);
-  color: #ffffff;
-  border: none;
+  background: rgb(0, 0, 0);
+  color: #e2dddd;
+  border: solid 2px #000000;
   border-radius: 15px;
   padding: 20px;
   font-weight: bold;
@@ -40,25 +43,23 @@ h1 {
   transition: all 0.3s ease;
 }
 
-/* Меню */
 .menu {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
     flex-wrap: wrap;
-    padding: 10px 30px;
-    background-color: rgb(60, 60, 70);
+    padding: 20px 30px;
+    background-color: #00000046;
 }
-
 
 .menu button {
     border-radius: 15px;
     width: 200px;
     height: 40px;
     border: none;
-    background-color: rgb(120, 120, 130);
-    color: white;
+    background-color: rgb(0, 0, 0);
+    color: #e2dddd;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -82,9 +83,9 @@ h1 {
     font-size: 14px;
     cursor: pointer;
     border-radius: 8px;
-    border: none;
-    background-color: rgb(120, 120, 130);
-    color: white;
+    border: solid 1px #000000;
+    background-color: rgb(0, 0, 0);
+    color: #e2dddd;
 }
 
 .search-input {
@@ -92,16 +93,16 @@ h1 {
     font-size: 14px;
     width: 250px;
     border-radius: 8px;
-    border: 2px solid #333;
+    border: 1px solid #333;
 }
 
 .reset-btn{
     border-radius: 5px;
-    border: none;
+    border: solid 1px #000000;
     padding: 3px 7px;
     cursor: pointer;
-    background: rgb(120, 120, 130);
-    color: white;
+    background: rgb(0, 0, 0);
+    color: #e2dddd;
     font-size: 14px;
 }
 
@@ -277,4 +278,24 @@ h1 {
         width: 95%;
         font-size: 0.9rem;
     }
+}
+
+.avatar {
+    position: absolute;
+    left: 27%;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: solid 3px #FF6A3D;
+}
+
+.about-me-h3 {
+    margin-top: 200px;
+    text-align: center;
+    color: #FF6A3D;
+}
+
+#about-me h1 {
+    color: #e2dddd;
 }
