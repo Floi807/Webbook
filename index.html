@@ -2,21 +2,19 @@
 <html>
     <head>
         <title>Мир книг</title>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/png" href="img/favicon.png">
     </head>
     <body>
-      <script src="main.js"></script>
-
         <div class="menu">
           <div class="menu-left">
             <img class="favicon" src="img/favicon.png">
           </div>
          <div class="menu-right">
           <button onclick="showPage('home')" class="btn1">Главная страница</button>
-          <button onclick="showPage('company')" class="btn2">О компании</button>
-          <button onclick="showPage('contact')" class="btn3">Контакты</button>
+          <button onclick="showPage('about-me')" class="btn2">Обо мне</button>
          </div> 
         </div>
 
@@ -28,40 +26,40 @@
         <h1 class="titl">Книги</h1>
         
         <div class="search-container">
-            <form>
+            <form id="searchForm">
             <button class="search-btn" type="submit">Поиск</button>
             <input class="search-input" type="text" list="np-offices" name="book" placeholder="Введите название книги" maxlength="30">
             <button class="reset-btn" type="reset">Очистить</button>
             <datalist id="np-offices">
-              <option value="Python 3"></option>
+              <option value="Легкий способ выучить Python"></option>
               <option value="Язык Программирования C++"></option>
-              <option value="HTML и XHTML"></option>
-              <option value="JavaScript и JQUERY"></option>
+              <option value="HTML & XHTML. Подробное руководство"></option>
+              <option value="Javascript и jQuery"></option>
               <option value="HTML и CSS"></option>
-              <option value="Программирование на Java для начинающих"></option>
+              <option value="Java"></option>
             </datalist>
           </form>
         </div><br>
         <div class="books-container">
             <div class="book">
-              <a href="book-python.html" target="_blank">
+              <a href="/Webbook/books/book-python.html">
            <img class="ii"
             src="img/книга Легкий способ выучить Python.jpg"
-            alt="Легкий способ выучить Python"
+            alt="книга Легкий способ выучить Python"
             style="cursor:pointer;"
             onclick="openBookPage(this)"
              data-title="Легкий способ выучить Python"
              data-description="Описание книги по Python..."
              data-img="img/книга Легкий способ выучить Python.jpg"
-             data-link="/Webbook/pdf/книга Легкий способ выучить Python_3.pdf">
+             data-link="/Webbook/books_read/Легкий_способ_выучить_Python_3.pdf">
              </a>
             </div>
 
             <div class="book">
-              <a href="book-c++.html"  target="_blank">
+              <a href="books/book-c++.html">
               <img class="im"
               src="img/книга Язык Программирования C++.jpg"
-              alt="Язык Программирования C++"
+              alt="книга Язык Программирования C++"
               style="cursor:pointer;"
               data-title="Язык Программирования C++"
               data-description="Описание книги по C++..."
@@ -71,7 +69,7 @@
             </div>
 
             <div class="book">
-              <a href="book-HTML & XHTML.html" target="_blank">
+              <a href="books/book-HTML & XHTML.html">
               <img class="im1" 
               src="img/книга HTML & XHTML. Подробное руководство.jpg"
               alt="Книга HTML & XHTML. Подробное руководство"
@@ -84,7 +82,7 @@
             </div>
 
             <div class="book">
-              <a href="book-Javascript и jQuery.html" target="_blank">
+              <a href="books/book-Javascript и jQuery.html">
               <img class="im2" 
               src="img/книга Javascript и jQuery.jpg"
               alt="Книга Javascript и jQuery"
@@ -97,10 +95,10 @@
             </div>
 
             <div class="book">
-              <a href="book-HTML_и_CSS_разработка.html" target="_blank">
+              <a href="books/book-HTML_и_CSS_разработка.html">
               <img class="im3" 
               src="img/CSS.jpg"
-              alt="Книга HTML и CSS"
+              alt="Книга HTML и CSS разработка"
               style="cursor:pointer;"
               data-title="HTML и CSS"
               data-description="Описание книги по HTML и CSS..."
@@ -110,10 +108,10 @@
             </div>
 
             <div class="book">
-              <a href="book-Программирование на Java для начинающих.html" target="_blank">
+              <a href="books/book-Программирование на Java для начинающих.html">
               <img class="im4" 
               src="img/Java.jpg"
-              alt="Книга Java"
+              alt="Книга Java для начинающих"
               style="cursor:pointer;"
               data-title="Java"
               data-description="Описание книги по Java..."
@@ -126,18 +124,16 @@
     </div>
 
     <!--О компании-->
-    <div id="company" class="page">
+    <div id="about-me" class="page">
       <article>
-        <h1>Об компании</h1>
-        
+        <h1>Обо мне</h1>
+        <img class="avatar" src="img/avatar.avif">
+        <h3 class="about-me-h3">Здравствуйте! я Flin, и я автор этого веб-сайта, посвященного книгам и литературе.<br><br>
+        На этом сайте вы найдете о различных книгах которые, на мой взгляд, заслуживают внимания.<br><br>
+        Спасибо, что посетили мой сайт! Надеюсь, вы найдете здесь что-то интересное и полезное для себя.</h3>
       </article>
     </div>
 
-    <!--Контакты-->
-    <div id="contact" class="page">
-      <article>
-        <h1>Контакты</h1>
-      </article>
-    </div>
+    <script src="main.js"></script>
     </body>
 </html>
